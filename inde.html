@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anniversary Surprise</title>
+    <style>
+        :root {
+            --primary-color: #ff4d6d;
+            --funny-color: #d81b60;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: #fff0f3;
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #444;
+            overflow-x: hidden;
+        }
+
+        /* Heart Animation */
+        .heart-container {
+            margin-top: 20px;
+            position: relative;
+            width: 180px;
+            height: 160px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: beat 1.2s infinite;
+        }
+
+        .heart-shape {
+            position: absolute;
+            width: 130px;
+            height: 130px;
+            background-color: var(--primary-color);
+            transform: rotate(-45deg);
+            box-shadow: 0 0 20px rgba(255, 77, 109, 0.3);
+        }
+
+        .heart-shape::before, .heart-shape::after {
+            content: "";
+            position: absolute;
+            width: 130px;
+            height: 130px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+        }
+
+        .heart-shape::before { top: -65px; left: 0; }
+        .heart-shape::after { left: 65px; top: 0; }
+
+        .names {
+            position: relative;
+            z-index: 10;
+            color: white;
+            font-weight: bold;
+            font-size: 1.1rem;
+            text-align: center;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+        }
+
+        @keyframes beat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        /* Card Section */
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 30px;
+            padding: 30px;
+            width: 85%;
+            max-width: 500px;
+            margin: 20px 0;
+            box-shadow: 0 15px 35px rgba(255, 77, 109, 0.2);
+            text-align: center;
+            border: 2px solid white;
+        }
+
+        .main-photo {
+            width: 100%;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        h1 { color: var(--primary-color); font-size: 1.8rem; margin-top: 0; }
+
+        .shayari {
+            font-size: 1.15rem;
+            color: #c9184a;
+            line-height: 1.6;
+            margin: 15px 0;
+            font-style: italic;
+            font-weight: bold;
+        }
+
+        .funny-box {
+            background: #ffe3e8;
+            padding: 20px;
+            border-left: 6px solid var(--funny-color);
+            margin: 20px 0;
+            border-radius: 12px;
+            text-align: left;
+        }
+
+        .alert-text {
+            color: #d32f2f;
+            font-weight: 900;
+            text-transform: uppercase;
+            font-size: 1rem;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        /* Music is hidden now */
+        #bg-music {
+            display: none;
+        }
+
+        .music-hint {
+            font-size: 0.8rem;
+            color: #ff85a1;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body onclick="playMusic()">
+
+    <div class="heart-container">
+        <div class="heart-shape"></div>
+        <div class="names">Raginee<br>&<br>Pankaj</div>
+    </div>
+
+    <div class="card">
+        <img src="PHOTO.jpg" alt="Didi Jiju" class="main-photo">
+        
+        <h1>Happy Anniversary! 🥂</h1>
+        
+        <div class="shayari">
+            "Didi ko jhelne ke liye Jiju ko salaam,<br>
+            Aapne sambhala hai unhein subah-o-shaam!<br>
+            Rab kare aapki jodi hamesha rahe fit,<br>
+            Anniversary aapki ho jaye ekdum Superhit!"
+        </div>
+
+        <div class="funny-box">
+            <span class="alert-text">⚠️ Confidential Info for Jiju:</span>
+            <p style="margin: 0; font-size: 1rem; color: #333; line-height: 1.5;">
+                Jiju, Papa aaj bata rahe the ki <strong>Raginee Didi</strong> ki asli age <strong>60 saal</strong> hai! 😱 
+                Shaadi ke waqt aapse thoda sa jhoot bolna pada tha. Ab jo hai so hai, aap bas khush rahiye!
+            </p>
+        </div>
+
+        <p class="music-hint">(Screen par kahin bhi touch karein magic ke liye! ✨)</p>
+    </div>
+
+    <audio id="bg-music" loop>
+        <source src="song.mp3" type="audio/mpeg">
+    </audio>
+
+    <p style="color: #ff85a1; font-size: 0.8rem; margin-bottom: 20px;">Made with ❤️ for Didi & Jiju</p>
+
+    <script>
+        function playMusic() {
+            var audio = document.getElementById("bg-music");
+            audio.play();
+        }
+    </script>
+
+</body>
+</html>
